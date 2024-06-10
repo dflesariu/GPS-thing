@@ -23,7 +23,6 @@ int GPSMenu();
 int historyMenu();
 
 void setup() {
-  // put your setup code here, to run once:
   
   // initialize the button GPIO as an input:
   pinMode(25, INPUT); //button K1
@@ -48,29 +47,25 @@ void setup() {
   tft.println(" Initialised \n");
   tft.println(" Panda");
 
-
-
   delay(1000);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
- 
+  // keeping mainMenu() as a fallback
   mainMenu();
 
 }
 
 
-// put function definitions here:
 int mainMenu() {
-  // Set the font colour to be white with a black background or the other way around
+  // Set the font colour to be white with a black background
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor(TFT_WHITE);
   
-  //Draw a rectangle starting from point 0 0 to point, tft width tft height (all around the screen)
+  //Draw a rectangle starting from point (0,0) to point (tft.w,tft.h)
   tft.drawRect(0, 0, tft.width(), tft.height(), TFT_GREEN);
 
-  // Set "cursor" at top left corner of display (0,0) and select font 
+  // Set "cursor" at a specific place on the display (x,y) and select font 
   tft.setCursor(12, 1, 1);
   // Print the name of the menu entry
   tft.println("main menu");
@@ -82,7 +77,7 @@ int mainMenu() {
   tft.println("Live GPS");
   tft.drawLine(0, 45, tft.width(), 45, TFT_BLUE);
 
-  //Live GPS button
+  //History button
   tft.setCursor(4, 57, 2);
   tft.println("History");
   tft.drawLine(0, 85, tft.width(), 85, TFT_BLUE);
@@ -100,6 +95,10 @@ int mainMenu() {
   buttonK1State = digitalRead(buttonK1);
   // loop 
   delay(500);
+
+  // currently the program exits this loop immediately, most likely a problem with the button states
+  // I suspect that pin25(buttonK1) is HIGH when depressed and LOW when pressed, and the others may be different
+  // Needs testing.
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
     buttonK1State = digitalRead(buttonK1);
