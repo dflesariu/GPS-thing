@@ -1,0 +1,16 @@
+// working button tester
+  //read the button state
+  buttonK1State = digitalRead(buttonK1);
+  // loop 
+  while (buttonK1State == HIGH)
+  {
+    tft.setCursor(4, 124, 1);
+    tft.println("Waiting");
+    buttonK1State = digitalRead(buttonK1);
+    delay(50);
+  };
+  
+  tft.setCursor(4, 127, 1);
+  tft.println("PRESS");
+  
+  delay(50);
