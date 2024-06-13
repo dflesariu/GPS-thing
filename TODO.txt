@@ -1,0 +1,2 @@
+Create a second file for the GPS-related code and import it as a header
+Convert all code to Google style C++ - https://google.github.io/styleguide/cppguide.html
