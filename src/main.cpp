@@ -194,7 +194,7 @@ int historyMenu() {
   tft.setCursor(4, 137, 2);
   tft.println("Main Menu");
 
-  // Read the button state with delay, the delay is necessary
+  // Read the button state with delay, this is necessary
   // in order to negate false button presses
   delay(100);
   buttonK1State = digitalRead(buttonK1);
