@@ -10,6 +10,7 @@ const int buttonK1 = 25;
 const int buttonK2 = 26;
 const int buttonK3 = 32;
 const int buttonK4 = 33;
+const int i=0;
 
 int buttonK1State = 0;
 int buttonK2State = 0;
@@ -21,26 +22,28 @@ int myFunction(int, int);
 int mainMenu();
 int GPSMenu();
 int historyMenu();
+int buttonTesting();
 
 void setup() {
   
-  // initialize the button GPIO as an input:
+  // initialize the button's corresponding GPIO pin as an input:
   pinMode(25, INPUT); //button K1
   pinMode(26, INPUT); //button K2
   pinMode(32, INPUT); //button K3
   pinMode(33, INPUT); //button K4
   
-  //initialise screen
+  // initialise screen
   tft.init();
-  //set screen BG color to black
+  // set screen BG color to black
   tft.fillScreen(TFT_BLACK);
+  // draw a red rectangle around the edges
   tft.drawRect(0, 0, tft.width(), tft.height(), TFT_RED);
 
   // Set "cursor" at top left corner of display (0,0) and select font
   // (1=8 pixel, 2=16 pixels, 4=26 pixels) / if you only put in one coord, it's the width
   tft.setCursor(0, 0, 2);
 
-  // Set the font colour to be white with a black background
+  // Set the font colour to be white
   tft.setTextColor(TFT_WHITE);
 
   // We can now plot text on screen using the "print" class
@@ -51,7 +54,7 @@ void setup() {
 }
 
 void loop() {
-  // keeping mainMenu() as a fallback
+  // keeping mainMenu() here so it behaves like a homescreen
   mainMenu();
 
 }
@@ -65,7 +68,7 @@ int mainMenu() {
   //Draw a rectangle starting from point (0,0) to point (tft.w,tft.h)
   tft.drawRect(0, 0, tft.width(), tft.height(), TFT_GREEN);
 
-  // Set "cursor" at a specific place on the display (x,y) and select font 
+  // Set "cursor" at a specific place on the display (x,y) and select font
   tft.setCursor(12, 1, 1);
   // Print the name of the menu entry
   tft.println("main menu");
@@ -100,6 +103,7 @@ int mainMenu() {
   // I suspect that pin25(buttonK1) is HIGH when depressed and LOW when pressed, and the others may be different
   // Needs testing.
   /*
+
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
     buttonK1State = digitalRead(buttonK1);
@@ -118,7 +122,7 @@ int mainMenu() {
     historyMenu();
   }
 */
-
+  buttonTesting();
   return 0;
 }
 
@@ -212,8 +216,6 @@ int historyMenu() {
 
   return 0;
 }
-
-
 
 
 // put function definitions here:

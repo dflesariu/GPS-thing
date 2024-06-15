@@ -1,16 +1,38 @@
-// working button tester
-  //read the button state
-  buttonK1State = digitalRead(buttonK1);
-  // loop 
-  while (buttonK1State == HIGH)
-  {
-    tft.setCursor(4, 124, 1);
-    tft.println("Waiting");
+// working button tester, call it in mainMenu()
+
+
+int buttonTesting() {
+  while (i<=100) { 
+
+    tft.fillScreen(TFT_BLACK);
+    tft.setTextColor(TFT_WHITE);
+    
+    //Draw a rectangle starting from point (0,0) to point (tft.w,tft.h)
+    tft.drawRect(0, 0, tft.width(), tft.height(), TFT_GREEN);
+
+    // Set "cursor" at a specific place on the display (x,y) and select font
+    tft.setCursor(12, 1, 1);
+    // Print the name of the menu entry
+    tft.println("testing screen");
+    // Draw a line 
+    tft.drawLine(0, 10, tft.width(), 10, TFT_BLUE);
+
+    //Live GPS button
+    tft.setCursor(4, 20, 2);
+    tft.println("Results:");
+
     buttonK1State = digitalRead(buttonK1);
-    delay(50);
-  };
+    buttonK2State = digitalRead(buttonK2);
+    buttonK3State = digitalRead(buttonK3);
+    buttonK4State = digitalRead(buttonK4);
+
+    tft.println(buttonK1State);
+    tft.println(buttonK2State);
+    tft.println(buttonK3State);
+    tft.println(buttonK4State);
+
+    delay(5000);
+  }
+  return 0;
+}
   
-  tft.setCursor(4, 127, 1);
-  tft.println("PRESS");
-  
-  delay(50);
