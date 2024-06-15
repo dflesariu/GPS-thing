@@ -6,4 +6,10 @@ Part list:
 - ESP32 WROOM devkit
     - Documentation: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/hw-reference/esp32/get-started-devkitc.html
 - Neo 6M GPS module
-    - Documentation: https://www.u-blox.com/en/product/neo-6-series
+    - Documentation: 
+        -https://www.u-blox.com/en/product/neo-6-series
+        -https://circuitdigest.com/microcontroller-projects/interfacing-neo6m-gps-module-with-esp32
+
+Libraries:
+- TFT_eSPI: https://github.com/Bodmer/TFT_eSPI
+- NeoGPS: https://github.com/SlashDevin/NeoGPS

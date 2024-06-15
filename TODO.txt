@@ -1,6 +1,6 @@
 Create a second file for the GPS-related code and import it as a header
 Convert all code to Google style C++ - https://google.github.io/styleguide/cppguide.html
-
+Convert menu building with screen % so it's scalable
 
 Completed
     -Make a standalone User_Setup.h file for TFT_eSPI so it's easier to update 

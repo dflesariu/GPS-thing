@@ -1,5 +1,9 @@
-// working button tester, call it in mainMenu()
+To write in different orientations:
+tft.setRotation(1) --> 90degrees
+tft.setRotation(2) --> 180degrees
+tft.setRotation(3) --> 270degrees
 
+// working button tester, call it in mainMenu()
 
 int buttonTesting() {
   while (i<=100) { 

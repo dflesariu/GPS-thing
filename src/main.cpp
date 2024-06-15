@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <SPI.h>
-#include <TFT_eSPI.h>  // Hardware-specific library
+#include <TFT_eSPI.h>
+#include <NMEAGPS.h>
 
 //custom libraries here:
 TFT_eSPI tft = TFT_eSPI();  // Invoke custom library
@@ -118,7 +119,6 @@ int mainMenu() {
   {
     historyMenu();
   }
-  
   /*
   else if(buttonK2State == LOW)
   {
@@ -174,7 +174,6 @@ int GPSMenu() {
     delay(50);
   };
 
-  
   return 0;
 }
 
