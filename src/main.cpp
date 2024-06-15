@@ -12,17 +12,16 @@ const int buttonK3 = 32;
 const int buttonK4 = 33;
 const int i=0;
 
-int buttonK1State = 0;
-int buttonK2State = 0;
-int buttonK3State = 0;
-int buttonK4State = 0;
+int buttonK1State = 1;
+int buttonK2State = 1;
+int buttonK3State = 1;
+int buttonK4State = 1;
 
 //function declarations here:
 int myFunction(int, int);
 int mainMenu();
 int GPSMenu();
 int historyMenu();
-int buttonTesting();
 
 void setup() {
   
@@ -59,8 +58,11 @@ void loop() {
 
 }
 
-
 int mainMenu() {
+  int buttonK1State = 1;
+  int buttonK2State = 1;
+  int buttonK3State = 1;
+  int buttonK4State = 1;
   // Set the font colour to be white with a black background
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor(TFT_WHITE);
@@ -94,45 +96,49 @@ int mainMenu() {
   tft.setCursor(4, 137, 2);
   tft.println("??");
 
-  //read the button state
-  buttonK1State = digitalRead(buttonK1);
-  // loop 
-  delay(500);
+  // Read the button state with delay, necessary
+  // in order to negate false button presses
+  delay(100);
 
-  // currently the program exits this loop immediately, most likely a problem with the button states
-  // I suspect that pin25(buttonK1) is HIGH when depressed and LOW when pressed, and the others may be different
-  // Needs testing.
-  /*
-
+  //button read loop
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
     buttonK1State = digitalRead(buttonK1);
     buttonK2State = digitalRead(buttonK2);
     buttonK3State = digitalRead(buttonK3);
     buttonK4State = digitalRead(buttonK4);
-    delay(500);
+    delay(50);
   };
 
-  if (buttonK4State == HIGH)
+  if (buttonK4State == LOW)
   {
     GPSMenu();
   } 
-  else if(buttonK3State == HIGH)
+  else if(buttonK3State == LOW)
   {
     historyMenu();
   }
-*/
-  buttonTesting();
+  
+  /*
+  else if(buttonK2State == LOW)
+  {
+    settingMenu();
+  }
+  else if(buttonK1State == LOW)
+  {
+    questionMenu();
+  }
+  */
   return 0;
 }
 
 int GPSMenu() {
   
   //reset button state
-  buttonK1State = 0;
-  buttonK2State = 0;
-  buttonK3State = 0;
-  buttonK4State = 0;
+  buttonK1State = 1;
+  buttonK2State = 1;
+  buttonK3State = 1;
+  buttonK4State = 1;
 
   // Set the font colour to be white with a black background or the other way around
   tft.fillScreen(TFT_BLACK);
@@ -148,15 +154,15 @@ int GPSMenu() {
   // Draw a line 
   tft.drawLine(0, 30, tft.width(), 30, TFT_BLUE);
 
-  //
+  //Back to main menu
   tft.drawLine(0, 125, tft.width(), 125, TFT_BLUE);
   tft.setCursor(4, 137, 2);
   tft.println("Main Menu");
 
-  // Read the button state with delay, the delay is necessary
+  // Read the button state with delay, necessary
   // in order to negate false button presses
   delay(100);
-  buttonK1State = digitalRead(buttonK1);
+
   // loop to check for button presses
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
@@ -176,10 +182,10 @@ int GPSMenu() {
 int historyMenu() {
   
   //reset button state
-  buttonK1State = 0;
-  buttonK2State = 0;
-  buttonK3State = 0;
-  buttonK4State = 0;
+  buttonK1State = 1;
+  buttonK2State = 1;
+  buttonK3State = 1;
+  buttonK4State = 1;
 
   // Set the font colour to be white with a black background or the other way around
   tft.fillScreen(TFT_BLACK);
@@ -195,24 +201,25 @@ int historyMenu() {
   // Draw a line 
   tft.drawLine(0, 30, tft.width(), 30, TFT_BLUE);
 
-  //
+  //Back to main Menu
   tft.drawLine(0, 125, tft.width(), 125, TFT_BLUE);
   tft.setCursor(4, 137, 2);
   tft.println("Main Menu");
 
-  // Read the button state with delay, this is necessary
+  // Read the button state with delay, necessary
   // in order to negate false button presses
   delay(100);
-  buttonK1State = digitalRead(buttonK1);
+
   // loop to check for button presses
-  while (buttonK1State || buttonK2State || buttonK3State || buttonK4State == HIGH)
+  while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
-    tft.setCursor(4, 124, 1);
-    tft.println("Waiting");
+  
     buttonK1State = digitalRead(buttonK1);
+    buttonK2State = digitalRead(buttonK2);
+    buttonK3State = digitalRead(buttonK3);
+    buttonK4State = digitalRead(buttonK4);
     delay(50);
   };
-
 
   return 0;
 }
