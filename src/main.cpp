@@ -99,6 +99,7 @@ int mainMenu() {
   // currently the program exits this loop immediately, most likely a problem with the button states
   // I suspect that pin25(buttonK1) is HIGH when depressed and LOW when pressed, and the others may be different
   // Needs testing.
+  /*
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
     buttonK1State = digitalRead(buttonK1);
@@ -116,6 +117,7 @@ int mainMenu() {
   {
     historyMenu();
   }
+*/
 
   return 0;
 }
