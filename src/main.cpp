@@ -2,6 +2,7 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 #include <NMEAGPS.h>
+#include "NMEA.h"
 
 //custom libraries here:
 TFT_eSPI tft = TFT_eSPI();  // Invoke custom library
@@ -49,14 +50,15 @@ void setup() {
   // We can now plot text on screen using the "print" class
   tft.println(" Initialised \n");
   tft.println(" Panda");
+  nmeasetup();
 
   delay(1000);
 }
 
 void loop() {
   // keeping mainMenu() here so it behaves like a homescreen
+  nmealoop();
   mainMenu();
-
 }
 
 int mainMenu() {
