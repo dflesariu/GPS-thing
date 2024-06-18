@@ -151,8 +151,9 @@ int GPSMenu() {
   tft.setCursor(10, 10, 2);
   // Print the name of the menu entry
   tft.println("Live GPS");
-  // Draw a line 
-  tft.drawLine(0, 30, tft.width(), 30, TFT_BLUE);
+  // Draw a line from the left 25% side of the monitor
+  // to the right 25% side of it
+  tft.drawLine(0, (tft.height()/25*100), tft.width(), (tft.height()/25*100), TFT_BLUE);
 
   //Back to main menu
   tft.drawLine(0, 125, tft.width(), 125, TFT_BLUE);
