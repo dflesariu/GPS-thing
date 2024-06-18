@@ -75,26 +75,29 @@ int mainMenu() {
   tft.setCursor(12, 1, 1);
   // Print the name of the menu entry
   tft.println("main menu");
-  // Draw a line 
-  tft.drawLine(0, 10, tft.width(), 10, TFT_BLUE);
+  // draw a line
+  tft.drawLine(0, (tft.height()/5*100), tft.width(), (tft.height()/5*100), TFT_BLUE);
 
   //Live GPS button
-  tft.setCursor(4, 20, 2);
+  tft.setCursor(4, (tft.height()/20*100), 2);
   tft.println("Live GPS");
-  tft.drawLine(0, 45, tft.width(), 45, TFT_BLUE);
+  // draw a line
+  tft.drawLine(0, (tft.height()/25*100), tft.width(), (tft.height()/25*100), TFT_BLUE);
 
   //History button
-  tft.setCursor(4, 57, 2);
+  tft.setCursor(4, (tft.height()/45*100), 2);
   tft.println("History");
-  tft.drawLine(0, 85, tft.width(), 85, TFT_BLUE);
+  // draw a line
+  tft.drawLine(0, (tft.height()/50*100), tft.width(), (tft.height()/50*100), TFT_BLUE);
 
   //Settings button
-  tft.setCursor(4, 97, 2);
+  tft.setCursor(4, (tft.height()/70*100), 2);
   tft.println("Settings");
-  tft.drawLine(0, 125, tft.width(), 125, TFT_BLUE);
+  // draw a line
+  tft.drawLine(0, (tft.height()/75*100), tft.width(), (tft.height()/75*100), TFT_BLUE);
 
   //?? button
-  tft.setCursor(4, 137, 2);
+  tft.setCursor(4, (tft.height()/90*100), 2);
   tft.println("??");
 
   // Read the button state with delay, necessary
