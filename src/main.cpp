@@ -80,24 +80,24 @@ int mainMenu() {
   //Live GPS button
   // Set "cursor" at a specific place on the display (x,y) and select font
   // the cursor position is calculated as a % of the screen size
-  tft.setCursor((tft.height()*10/100), (tft.height()*10/100), 2);
+  tft.setCursor((tft.height()*5/100), (tft.height()*10/100), 2);
   // Print the name of the menu entry
-  tft.println("GPS");
+  tft.println("Live GPS");
    // Draw a line 
   tft.drawLine(0, (tft.height()*25/100), tft.width(), (tft.height()*25/100), TFT_GREEN);
 
   //History button
-  tft.setCursor((tft.height()*10/100), (tft.height()*35/100), 2);
+  tft.setCursor((tft.height()*5/100), (tft.height()*35/100), 2);
   tft.println("History");
   tft.drawLine(0, (tft.height()*50/100), tft.width(), (tft.height()*50/100), TFT_GREEN);
 
   //Settings button
-  tft.setCursor((tft.height()*10/100), (tft.height()*60/100), 2);
+  tft.setCursor((tft.height()*5/100), (tft.height()*60/100), 2);
   tft.println("Settings");
   tft.drawLine(0, (tft.height()*75/100), tft.width(), (tft.height()*75/100), TFT_GREEN);
 
   //?? button
-  tft.setCursor((tft.height()*10/100), (tft.height()*85/100), 2);
+  tft.setCursor((tft.height()*5/100), (tft.height()*85/100), 2);
   tft.println("??");
 
   // Read the button state with delay, necessary
@@ -151,15 +151,15 @@ int GPSMenu() {
   tft.drawRect(0, 0, tft.width(), tft.height(), TFT_BLUE);
 
   // Set "cursor" at top left corner of display (0,0) and select font
-  tft.setCursor(10, 10, 2);
+  tft.setCursor((tft.height()*5/100), (tft.height()*10/100), 2);
   // Print the name of the menu entry
   tft.println("Live GPS");
   // Draw a line 
-  tft.drawLine(0, 30, tft.width(), 30, TFT_BLUE);
+  tft.drawLine(0, (tft.height()*25/100), tft.width(), (tft.height()*25/100), TFT_BLUE);
 
   //Back to main menu
-  tft.drawLine(0, 125, tft.width(), 125, TFT_BLUE);
-  tft.setCursor(4, 137, 2);
+  tft.drawLine(0, (tft.height()*75/100), tft.width(), (tft.height()*75/100), TFT_BLUE);
+  tft.setCursor((tft.height()*5/100), (tft.height()*85/100), 2);
   tft.println("Main Menu");
 
   // Read the button state with delay, necessary
