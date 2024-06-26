@@ -77,30 +77,27 @@ int mainMenu() {
   //Draw a rectangle starting from point (0,0) to point (tft.w,tft.h)
   tft.drawRect(0, 0, tft.width(), tft.height(), TFT_GREEN);
 
-  // Set "cursor" at a specific place on the display (x,y) and select font
-  tft.setCursor(12, 1, 1);
-  // Print the name of the menu entry
-  tft.println("main menu");
-  // Draw a line 
-  tft.drawLine(0, 10, tft.width(), 10, TFT_BLUE);
-
   //Live GPS button
-  tft.setCursor(4, 20, 2);
-  tft.println("Live GPS");
-  tft.drawLine(0, 45, tft.width(), 45, TFT_BLUE);
+  // Set "cursor" at a specific place on the display (x,y) and select font
+  // the cursor position is calculated as a % of the screen size
+  tft.setCursor((tft.height()*10/100), (tft.height()*10/100), 2);
+  // Print the name of the menu entry
+  tft.println("GPS");
+   // Draw a line 
+  tft.drawLine(0, (tft.height()*25/100), tft.width(), (tft.height()*25/100), TFT_GREEN);
 
   //History button
-  tft.setCursor(4, 57, 2);
+  tft.setCursor((tft.height()*10/100), (tft.height()*35/100), 2);
   tft.println("History");
-  tft.drawLine(0, 85, tft.width(), 85, TFT_BLUE);
+  tft.drawLine(0, (tft.height()*50/100), tft.width(), (tft.height()*50/100), TFT_GREEN);
 
   //Settings button
-  tft.setCursor(4, 97, 2);
+  tft.setCursor((tft.height()*10/100), (tft.height()*60/100), 2);
   tft.println("Settings");
-  tft.drawLine(0, 125, tft.width(), 125, TFT_BLUE);
+  tft.drawLine(0, (tft.height()*75/100), tft.width(), (tft.height()*75/100), TFT_GREEN);
 
   //?? button
-  tft.setCursor(4, 137, 2);
+  tft.setCursor((tft.height()*10/100), (tft.height()*85/100), 2);
   tft.println("??");
 
   // Read the button state with delay, necessary
