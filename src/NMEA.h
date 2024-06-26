@@ -1,5 +1,3 @@
-#include <NMEAGPS.h>
-#include <Arduino.h>
 //======================================================================
 //  Program: NMEA.ino
 //
@@ -32,18 +30,20 @@
 //  'Serial' is for debug output to the Serial Monitor window.
 //
 //======================================================================
-#include <GPSport.h>
+//#include <GPSport.h>
+#include <NMEAGPS.h>
+#include <Arduino.h>
 #include <HardwareSerial.h>
 
-
 #define gpsPort Serial2
-#define GPS_PORT_NAME "HardwareSerial"
+//#define GPS_PORT_NAME "HardwareSerial"
+#define GPS_PORT_NAME "Serial2"
 #define DEBUG_PORT Serial
 
 #define GPS_RX_PIN 16
 #define GPS_TX_PIN 17
 
-//HardwareSerial gpsPort(Serial2);
+//HardwareSerial gpsPort(2);
 
 //------------------------------------------------------------
 // For the NeoGPS example programs, "Streamers" is common set
@@ -144,8 +144,8 @@ void nmeasetup()
   trace_header( DEBUG_PORT );
   DEBUG_PORT.flush();
 
-  //gpsPort.begin( 9600 );
-  gpsPort.begin( 9600, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN);
+  //gpsPort.begin( 9600, SERIAL_8N1 );
+  gpsPort.begin( 9600, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN );
 }
 
 //--------------------------

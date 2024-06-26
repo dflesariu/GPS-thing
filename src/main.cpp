@@ -26,7 +26,10 @@ int GPSMenu();
 int historyMenu();
 
 void setup() {
-  
+  //initial GPS setup
+  //nmeasetup();
+
+
   // initialize the button's corresponding GPIO pin as an input:
   pinMode(25, INPUT); //button K1
   pinMode(26, INPUT); //button K2
@@ -50,14 +53,15 @@ void setup() {
   // We can now plot text on screen using the "print" class
   tft.println(" Initialised \n");
   tft.println(" Panda");
-  nmeasetup();
+ 
 
   delay(1000);
 }
 
 void loop() {
   // keeping mainMenu() here so it behaves like a homescreen
-  nmealoop();
+  //starting the nmea loop
+  //nmealoop();
   mainMenu();
 }
 
