@@ -1,4 +1,4 @@
-Create a menu header file
+
 Instead of different functions for each menu, create a list of lists for each menu that replaces some variables 
 if the variable is 0, the menu does not render lines for the empty spaces.
 Convert all code to Google style C++ - https://google.github.io/styleguide/cppguide.html
@@ -8,3 +8,4 @@ Completed
     -Make a standalone User_Setup.h file for TFT_eSPI so it's easier to update
     -Convert menu rendering to scale with screen %
     -Create a second file for the GPS-related code and import it as a header
+    -Create a menu header file

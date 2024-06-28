@@ -35,6 +35,7 @@
 #include <Arduino.h>
 #include <HardwareSerial.h>
 
+
 #define gpsPort Serial2
 //#define GPS_PORT_NAME "HardwareSerial"
 #define GPS_PORT_NAME "Serial2"
