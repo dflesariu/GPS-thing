@@ -34,7 +34,7 @@
 #include <NMEAGPS.h>
 #include <Arduino.h>
 #include <HardwareSerial.h>
-#include "Menu.h"
+//#include "Menu.h"
 
 
 #define gpsPort Serial2
@@ -81,7 +81,7 @@ static void doSomeWork()
   // Print all the things!
 
   trace_all( DEBUG_PORT, gps, fix );
-  mainMenu();
+  
 } // doSomeWork
 
 //------------------------------------

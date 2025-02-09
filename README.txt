@@ -18,16 +18,16 @@ Libraries:
 - TFT_eSPI: https://github.com/Bodmer/TFT_eSPI
 - NeoGPS: https://github.com/SlashDevin/NeoGPS
 
-Wiring 
+Wiring and config for "User_Setup.h"
 
 Display <-> ESP32
 
-SCL <-> D18 / HSCLK / VSPI_CLK
-SDA <-> D23 / HMOSI / VSPI_MOSI
-RES <-> D21
-DC <-> D19 / HMISO / VSPI_MISO
-CS <-> D5 / HCS / VSPI_CS
-BLK <-> D23 / LED Backlight
+SCL <-> 18 / HSCLK / VSPI_CLK / TFT_SCLK
+SDA <-> 23 / HMOSI / VSPI_MOSI / TFT_MOSI
+RES <-> 21 / reset  / TFT_RST
+DC <-> 19 / HMISO / VSPI_MISO / TFT_MISO or TFT_DC
+CS <-> 5 HCS / VSPI_CS / TFT_CS (you may also use pin 15)
+BLK <-> 22 / LED Backlight (currently not defined )
 K1 <-> D25
 K2 <-> D26
 K3 <-> D32

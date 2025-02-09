@@ -1,13 +1,12 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <TFT_eSPI.h>
-#include <NMEAGPS.h>
-#include "NMEA.h"
-//#include "Menu.h"
+
+#include "Menu.h"
 
 void setup() {
   // calling nmeasetup
- nmeasetup();
+  //nmeasetup();
   // initialize the button's corresponding GPIO pin as an input:
   pinMode(25, INPUT); //button K1
   pinMode(26, INPUT); //button K2
@@ -38,8 +37,8 @@ void setup() {
 
 void loop() {
   //starting the nmea loop from NMEA.h
-  nmealoop();
+  //nmealoop();
   //keeping mainMenu() here so it behaves like a homescreen
-  //mainMenu();
+  mainMenu();
 
 }

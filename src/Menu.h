@@ -1,6 +1,10 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 
+#include <NMEAGPS.h>
+#include "NMEA.h"
+
+
 //constants and variables declarations here:
 int mainMenu();
 int GPSMenu();
@@ -15,6 +19,7 @@ const int buttonK2 = 26;
 const int buttonK3 = 32;
 const int buttonK4 = 33;
 const int i=0;
+const int y=10;
 
 int buttonK1State = 1;
 int buttonK2State = 1;
@@ -122,9 +127,17 @@ int GPSMenu() {
 
   // Read the button state with delay, necessary
   // in order to negate false button presses
+ 
+
+  nmeasetup();
+
   delay(100);
 
-
+  while (y>0) {
+    nmealoop();
+    y==y-1;
+  }
+  //delay(3000);
   // loop to check for button presses
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
