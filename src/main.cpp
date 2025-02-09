@@ -3,23 +3,11 @@
 #include <TFT_eSPI.h>
 #include <NMEAGPS.h>
 #include "NMEA.h"
-#include "Menu.h"
-
-//custom libraries here:
-
-
-//constants and variables declarations here:
-
-
-//function declarations here:
-int myFunction(int, int);
-
+//#include "Menu.h"
 
 void setup() {
-  //initial GPS setup
-  //nmeasetup();
-
-
+  // calling nmeasetup
+ nmeasetup();
   // initialize the button's corresponding GPIO pin as an input:
   pinMode(25, INPUT); //button K1
   pinMode(26, INPUT); //button K2
@@ -49,15 +37,9 @@ void setup() {
 }
 
 void loop() {
+  //starting the nmea loop from NMEA.h
+  nmealoop();
   //keeping mainMenu() here so it behaves like a homescreen
-  //starting the nmea loop
-  //nmealoop();
-  mainMenu();
-}
+  //mainMenu();
 
-
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }

@@ -24,10 +24,10 @@ Display <-> ESP32
 
 SCL <-> D18 / HSCLK / VSPI_CLK
 SDA <-> D23 / HMOSI / VSPI_MOSI
-RES <-> D4 - **unplugged
+RES <-> D21
 DC <-> D19 / HMISO / VSPI_MISO
 CS <-> D5 / HCS / VSPI_CS
-BLK <-> LED Backlight - no connection
+BLK <-> D23 / LED Backlight
 K1 <-> D25
 K2 <-> D26
 K3 <-> D32
@@ -39,5 +39,5 @@ Neo 6M <-> ESP32
 
 VCC <-> VCC
 GND <-> GND
-TX <-> TX2
-RX <-> RX2
+TX <-> RX2 / 16
+RX <-> TX2 / 17

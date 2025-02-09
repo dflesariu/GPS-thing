@@ -31,7 +31,7 @@ int mainMenu() {
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor(TFT_WHITE);
   
-  //Draw a rectangle starting from point (0,0) to point (tft.w,tft.h)
+  //Draw a rectangle starting from point (0,0) to point (tft.width,tft.height)
   tft.drawRect(0, 0, tft.width(), tft.height(), TFT_GREEN);
 
   //Live GPS button
@@ -123,6 +123,7 @@ int GPSMenu() {
   // Read the button state with delay, necessary
   // in order to negate false button presses
   delay(100);
+
 
   // loop to check for button presses
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)

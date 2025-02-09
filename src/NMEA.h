@@ -1,5 +1,5 @@
 //======================================================================
-//  Program: NMEA.ino
+//  Program: NMEA.h
 //
 //  Description:  This program uses the fix-oriented methods available() and
 //    read() to handle complete fix structures.
@@ -34,10 +34,10 @@
 #include <NMEAGPS.h>
 #include <Arduino.h>
 #include <HardwareSerial.h>
+#include "Menu.h"
 
 
 #define gpsPort Serial2
-//#define GPS_PORT_NAME "HardwareSerial"
 #define GPS_PORT_NAME "Serial2"
 #define DEBUG_PORT Serial
 
@@ -81,7 +81,7 @@ static void doSomeWork()
   // Print all the things!
 
   trace_all( DEBUG_PORT, gps, fix );
-
+  mainMenu();
 } // doSomeWork
 
 //------------------------------------
