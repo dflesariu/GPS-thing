@@ -145,7 +145,7 @@ void nmeasetup()
   trace_header( DEBUG_PORT );
   DEBUG_PORT.flush();
 
-  //gpsPort.begin( 9600, SERIAL_8N1 );
+  
   gpsPort.begin( 9600, SERIAL_8N1, GPS_RX_PIN, GPS_TX_PIN );
 }
 

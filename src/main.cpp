@@ -1,7 +1,8 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <TFT_eSPI.h>
-
+//#include <NMEAGPS.h>
+//#include "NMEA.h"
 #include "Menu.h"
 
 void setup() {
@@ -36,8 +37,7 @@ void setup() {
 }
 
 void loop() {
-  //starting the nmea loop from NMEA.h
-  //nmealoop();
+ 
   //keeping mainMenu() here so it behaves like a homescreen
   mainMenu();
 
