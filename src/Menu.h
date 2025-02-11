@@ -29,10 +29,9 @@ int buttonK4State = 1;
 
 
 int mainMenu() {
-  int buttonK1State = 1;
-  int buttonK2State = 1;
-  int buttonK3State = 1;
-  int buttonK4State = 1;
+  
+  //reset button state
+  button_reset();
   // Set the font colour to be white with a black background
   tft.fillScreen(TFT_BLACK);
   tft.setTextColor(TFT_WHITE);
@@ -129,6 +128,7 @@ int GPSMenu() {
 
   //nmeasetup();
   // loop to check for button presses
+  delay(100);
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
     button_read();
@@ -145,10 +145,7 @@ int GPSMenu() {
 int historyMenu() {
   
   //reset button state
-  buttonK1State = 1;
-  buttonK2State = 1;
-  buttonK3State = 1;
-  buttonK4State = 1;
+  button_reset();
 
   // Set the font colour to be white with a black background or the other way around
   tft.fillScreen(TFT_BLACK);
@@ -190,11 +187,7 @@ int historyMenu() {
 int button_reset()
 {
   //reset button state
-  buttonK1State = 1;
-  buttonK2State = 1;
-  buttonK3State = 1;
-  buttonK4State = 1;
-  return buttonK4State;
+  return (buttonK1State=1, buttonK2State=1, buttonK3State=1, buttonK4State=1);
 }
 
 
@@ -205,6 +198,6 @@ int button_read()
   buttonK2State = digitalRead(buttonK2);
   buttonK3State = digitalRead(buttonK3);
   buttonK4State = digitalRead(buttonK4);
-  return buttonK4State;
+  return (buttonK4State,buttonK2State, buttonK3State, buttonK4State);
 }
 
