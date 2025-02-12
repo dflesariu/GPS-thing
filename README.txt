@@ -27,7 +27,7 @@ SDA <-> 23 / HMOSI / VSPI_MOSI / TFT_MOSI
 RES <-> 21 / reset  / TFT_RST
 DC <-> 19 / HMISO / VSPI_MISO / TFT_MISO or TFT_DC
 CS <-> 5 HCS / VSPI_CS / TFT_CS (you may also use pin 15)
-BLK <-> 22 / LED Backlight (currently not defined )
+BLK <-> 22 / LED Backlight
 K1 <-> D25
 K2 <-> D26
 K3 <-> D32

@@ -11,6 +11,8 @@ int GPSMenu();
 int historyMenu();
 int button_reset();
 int button_read();
+void tft_init();
+
 
 
 TFT_eSPI tft = TFT_eSPI();  // Invoke custom library
@@ -20,13 +22,24 @@ const int buttonK1 = 25;
 const int buttonK2 = 26;
 const int buttonK3 = 32;
 const int buttonK4 = 33;
-const int i=0;
 
+
+int i=0;
 int buttonK1State = 1;
 int buttonK2State = 1;
 int buttonK3State = 1;
 int buttonK4State = 1;
 
+void tft_init() {
+  // initialize the button's corresponding GPIO pin as an input:
+  pinMode(buttonK1, INPUT); //button K1
+  pinMode(buttonK2, INPUT); //button K2
+  pinMode(buttonK3, INPUT); //button K3
+  pinMode(buttonK4, INPUT); //button K4
+  
+  // initialise screen
+  tft.init();
+}
 
 int mainMenu() {
   
@@ -69,10 +82,7 @@ int mainMenu() {
   //button read loop
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
-    buttonK1State = digitalRead(buttonK1);
-    buttonK2State = digitalRead(buttonK2);
-    buttonK3State = digitalRead(buttonK3);
-    buttonK4State = digitalRead(buttonK4);
+    button_read();
     //50ms is unnoticeable for the user
     delay(50);
   };
@@ -125,18 +135,20 @@ int GPSMenu() {
   // Read the button state with delay, necessary
   // in order to negate false button presses
  
-
-  //nmeasetup();
+  delay(100);
+  nmeasetup();
   // loop to check for button presses
   delay(100);
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
     button_read();
-    //nmealoop();
+    nmealoop();
+
     delay(50);
   };
 
-  //gpsPort.flush();
+  //stopping the gpsPort Serial connection when it's not needed otherwise the SPI connection to the screen fails.
+  gpsPort.flush();
 
   return 0;
 }
