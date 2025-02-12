@@ -1,8 +1,9 @@
+#include <string>
 #include <SPI.h>
 #include <TFT_eSPI.h>
-
 #include <NMEAGPS.h>
 #include "NMEA.h"
+ 
 
 
 //constants and variables declarations here:
@@ -23,8 +24,7 @@ const int buttonK2 = 26;
 const int buttonK3 = 32;
 const int buttonK4 = 33;
 
-
-int i=0;
+std::string nmea_sentence = "test";
 int buttonK1State = 1;
 int buttonK2State = 1;
 int buttonK3State = 1;
@@ -143,7 +143,7 @@ int GPSMenu() {
   {
     button_read();
     nmealoop();
-
+    //printf("%s\n", nmea_sentence.c_str());
     delay(50);
   };
 
@@ -186,10 +186,7 @@ int historyMenu() {
   while (buttonK1State && buttonK2State && buttonK3State && buttonK4State == HIGH)
   {
   
-    buttonK1State = digitalRead(buttonK1);
-    buttonK2State = digitalRead(buttonK2);
-    buttonK3State = digitalRead(buttonK3);
-    buttonK4State = digitalRead(buttonK4);
+    button_read();
     delay(50);
   };
 

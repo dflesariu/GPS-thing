@@ -34,8 +34,6 @@
 #include <NMEAGPS.h>
 #include <Arduino.h>
 #include <HardwareSerial.h>
-//#include "Menu.h"
-
 
 #define gpsPort Serial2
 #define GPS_PORT_NAME "Serial2"
@@ -43,6 +41,7 @@
 
 #define GPS_RX_PIN 16
 #define GPS_TX_PIN 17
+
 
 //HardwareSerial gpsPort(2);
 
